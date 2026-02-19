@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 준비: 배포 키 생성
+      - name: '준비: 배포 키 생성'
         shell: bash
         run: |
           printf '%s' "${{ secrets.SSH_PRIVATE_KEY }}" > deploy_key_raw
@@ -23,7 +23,7 @@ jobs:
           chmod 600 deploy_key
           rm deploy_key_raw
 
-      - name: HeBlogs 테마 rsync 배포
+      - name: 'HeBlogs 테마 rsync 배포 (v4.1.8)'
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
