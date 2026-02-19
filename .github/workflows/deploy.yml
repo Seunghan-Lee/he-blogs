@@ -17,10 +17,10 @@ jobs:
 
       - name: Prepare deploy key
         shell: bash
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          printf '%s' "$SSH_PRIVATE_KEY" > deploy_key_raw
+          cat <<'EOF' > deploy_key_raw
+${{ secrets.SSH_PRIVATE_KEY }}
+EOF
           tr -d '\r' < deploy_key_raw > deploy_key
           chmod 600 deploy_key
           rm -f deploy_key_raw
