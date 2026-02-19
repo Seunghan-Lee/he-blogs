@@ -15,13 +15,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy HeBlogs theme via rsync
-        uses: easingthemes/ssh-deploy@v4.1.8
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.SSH_HOST }}
-          REMOTE_USER: ${{ secrets.SSH_USER }}
-          REMOTE_PORT: ${{ secrets.SSH_PORT }}
-          SOURCE: HeBlogs/
-          TARGET: /opt/sites/he-blogs/wp-content/themes/HeBlogs
-          ARGS: '-rltgoDzvO --delete'
+      - name: 준비: 배포 키 생성
+        shell: bash
+        run: |
+          cat <<'EOF' > deploy_key_raw
+${{ secrets.SSH_PRIVATE_KEY }}
+EOF
+          tr -d '\r' < deploy_key_raw > deploy_key
+          chmod 600 deploy_key
+          rm deploy_key_raw
+
+      - name: HeBlogs 테마 rsync 배포
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          set -euo pipefail
+          TARGET="${TARGET_PATH:-/opt/sites/he-blogs/wp-content/themes/HeBlogs}"
+          PORT="${SSH_PORT:-22}"
+          rsync -rltgoDzvO --delete -e "ssh -i deploy_key -o StrictHostKeyChecking=no -p ${PORT}" HeBlogs/ "${SSH_USER}@${SSH_HOST}:${TARGET}"
