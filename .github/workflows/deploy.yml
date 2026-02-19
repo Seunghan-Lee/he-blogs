@@ -18,9 +18,7 @@ jobs:
       - name: 준비: 배포 키 생성
         shell: bash
         run: |
-          cat <<'EOF' > deploy_key_raw
-${{ secrets.SSH_PRIVATE_KEY }}
-EOF
+          printf '%s' "${{ secrets.SSH_PRIVATE_KEY }}" > deploy_key_raw
           tr -d '\r' < deploy_key_raw > deploy_key
           chmod 600 deploy_key
           rm deploy_key_raw
