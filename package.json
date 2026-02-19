@@ -1,0 +1,15 @@
+{
+  "name": "heblogs-docker",
+  "private": true,
+  "scripts": {
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:restart": "docker-compose restart",
+    "docker:logs": "docker-compose logs -f",
+    "docker:stop": "docker-compose stop",
+    "docker:start": "docker-compose start",
+    "docker:ps": "docker-compose ps",
+    "theme:build": "cd HeBlogs && npm run build",
+    "theme:watch": "cd HeBlogs && npm run watch"
+  }
+}

@@ -1,0 +1,54 @@
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: heblogs-wordpress
+    restart: unless-stopped
+    ports:
+      - "${WP_PORT:-8080}:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ${DB_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-wordpress}
+      WORDPRESS_DB_NAME: ${DB_NAME:-wordpress}
+      WORDPRESS_DEBUG: ${WP_DEBUG:-1}
+    volumes:
+      - ./wordpress-data:/var/www/html
+      - ./HeBlogs:/var/www/html/wp-content/themes/HeBlogs
+    depends_on:
+      - db
+    networks:
+      - heblogs-network
+
+  db:
+    image: mysql:8.0
+    container_name: heblogs-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-wordpress}
+      MYSQL_USER: ${DB_USER:-wordpress}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-wordpress}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootpassword}
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    networks:
+      - heblogs-network
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: heblogs-phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "${PHPMYADMIN_PORT:-8081}:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: ${DB_USER:-wordpress}
+      PMA_PASSWORD: ${DB_PASSWORD:-wordpress}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootpassword}
+    depends_on:
+      - db
+    networks:
+      - heblogs-network
+
+networks:
+  heblogs-network:
+    driver: bridge

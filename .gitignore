@@ -1,0 +1,23 @@
+# WordPress 데이터
+wordpress-data/
+mysql-data/
+
+# 환경 변수 파일
+.env
+
+# OS 파일
+.DS_Store
+Thumbs.db
+
+# IDE 설정
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 로그 파일
+*.log
+
+# Node modules (이미 있을 수 있음)
+node_modules/
