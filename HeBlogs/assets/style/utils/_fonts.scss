@@ -1,0 +1,18 @@
+// 한글: Noto Sans KR (Google Fonts) / 영문: Google Sans
+// Google Sans은 Google Fonts에 없어 별도 로드 시 사용. 없으면 Noto Sans KR 적용
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+:root {
+    --font-sans: "Google Sans", "Noto Sans KR", sans-serif;
+}
+
+body, div, h1, h2, h3, h4, h5, h6, p, a, span, li, ul, ol, table, tr, td, th, textarea, input, button {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: -0.02em;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}

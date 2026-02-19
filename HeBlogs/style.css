@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/**
+ * HeBlogs 메인 스타일시트
+ * 하위 디렉토리 SCSS를 순서대로 임포트
+ * 빌드: npm run build | 감시: npm run watch
+ */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+/*!
+Theme Name: HeBlogs
+Description: 블로그 전용 워드프레스 테마
+Version: 1.0
+Author: jushan1980@gmail.com
+*/
+:root {
+  --font-sans: "Google Sans", "Noto Sans KR", sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* 기본 스타일 리셋 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+/* 메인 콘텐츠 */
+/* 포스트 */
+.post {
+  background-color: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.post-content {
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,11 @@
+{
+  "name": "heblogs",
+  "private": true,
+  "scripts": {
+    "build": "sass assets/style/style.scss style.css --no-source-map",
+    "watch": "sass assets/style/style.scss style.css --watch"
+  },
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}

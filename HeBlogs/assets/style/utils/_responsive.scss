@@ -1,0 +1,20 @@
+// 반응형 breakpoint – 숫자는 이 파일에서만 관리
+// 사용: @include below { } / @include above { } (인자 없으면 기본값 사용)
+// 또는 @include below($bp-mobile) 처럼 변수명으로 지정
+
+$mobile: 480px !default;
+$tablet: 768px !default;
+$desktop: 1024px !default;
+$wide: 1200px !default;
+
+@mixin below($max-width: $tablet) {
+    @media (max-width: $max-width) {
+        @content;
+    }
+}
+
+@mixin above($min-width: $tablet) {
+    @media (min-width: $min-width) {
+        @content;
+    }
+}
