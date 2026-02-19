@@ -47,9 +47,47 @@ function heblogs_setup() {
 add_action('after_setup_theme', 'heblogs_setup');
 
 /**
+ * 사이드바 위젯 영역 등록
+ */
+function heblogs_widgets_init() {
+    register_sidebar(array(
+        'name'          => __('사이드바', 'heblogs'),
+        'id'            => 'sidebar-1',
+        'description'   => __('메인 사이드바 위젯 영역입니다.', 'heblogs'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ));
+
+    register_sidebar(array(
+        'name'          => __('푸터', 'heblogs'),
+        'id'            => 'footer-1',
+        'description'   => __('푸터 위젯 영역입니다.', 'heblogs'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ));
+}
+add_action('widgets_init', 'heblogs_widgets_init');
+
+/**
  * 콘텐츠 폭 기본값
  */
 function heblogs_content_width() {
     $GLOBALS['content_width'] = apply_filters('heblogs_content_width', 800);
 }
 add_action('after_setup_theme', 'heblogs_content_width', 0);
+
+/**
+ * 한 페이지에 표시할 포스트 수 설정 (10개)
+ */
+function heblogs_posts_per_page($query) {
+    if (!is_admin() && $query->is_main_query()) {
+        if (is_home() || is_category() || is_archive()) {
+            $query->set('posts_per_page', 10);
+        }
+    }
+}
+add_action('pre_get_posts', 'heblogs_posts_per_page');

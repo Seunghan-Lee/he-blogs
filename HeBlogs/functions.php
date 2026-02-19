@@ -20,3 +20,6 @@ require_once get_template_directory() . '/functions/favicon.php';
 
 // 관리자 기능 (알림 등)
 require_once get_template_directory() . '/functions/admin.php';
+
+// 테마 옵션 페이지
+require_once get_template_directory() . '/functions/theme-options.php';

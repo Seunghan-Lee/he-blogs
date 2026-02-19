@@ -1,0 +1,78 @@
+@use '../utils/variables' as *;
+@use '../utils/responsive' as *;
+
+.pagination-wrapper {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $color-gray-200;
+}
+
+// WordPress 기본 페이지네이션 스타일
+.posts-navigation,
+.post-navigation {
+    margin: $spacing-xl 0;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $color-gray-200;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+}
+
+.nav-previous,
+.nav-next {
+    a {
+        display: inline-block;
+        padding: $spacing-sm $spacing-md;
+        color: $color-gray-600;
+        text-decoration: none;
+        border: 1px solid $color-gray-300;
+        background-color: $color-white;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: $color-black;
+            border-color: $color-gray-500;
+            background-color: $color-gray-100;
+        }
+    }
+}
+
+.page-numbers {
+    display: inline-block;
+    padding: $spacing-sm $spacing-md;
+    color: $color-gray-600;
+    text-decoration: none;
+    border: 1px solid $color-gray-300;
+    background-color: $color-white;
+    min-width: 40px;
+    text-align: center;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: $color-black;
+        border-color: $color-gray-500;
+        background-color: $color-gray-100;
+    }
+
+    &.current {
+        color: $color-white;
+        background-color: $color-black;
+        border-color: $color-black;
+    }
+
+    &.dots {
+        border: none;
+        background-color: transparent;
+        cursor: default;
+
+        &:hover {
+            color: $color-gray-600;
+            background-color: transparent;
+        }
+    }
+}

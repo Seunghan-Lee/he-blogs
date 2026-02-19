@@ -1,4 +1,37 @@
+@use '../utils/variables' as *;
 @use '../utils/responsive' as *;
 
-/* 메인 콘텐츠 */
+// 컨테이너 기본 스타일
+.site-content {
+    width: 100%;
+    padding: 0 $container-padding;
+}
 
+.content-wrapper {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: $spacing-xl;
+    padding: $spacing-xl 0;
+
+    @include below($breakpoint-mobile) {
+        grid-template-columns: 1fr;
+        gap: $spacing-md;
+        padding: $spacing-lg 0;
+    }
+}
+
+// 메인 콘텐츠 영역
+.site-main {
+    min-width: 0; // grid에서 오버플로우 방지
+}
+
+// 사이드바
+.sidebar {
+    min-width: 0; // grid에서 오버플로우 방지
+
+    @include below($breakpoint-mobile) {
+        order: -1; // 모바일에서 사이드바를 위로
+    }
+}

@@ -1,0 +1,49 @@
+@use '../utils/variables' as *;
+@use '../utils/responsive' as *;
+
+// 포스트 네비게이션 (이전/다음 글)
+.post-navigation {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $color-gray-200;
+
+    .nav-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-md;
+
+        @include below($breakpoint-mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .nav-previous,
+    .nav-next {
+        a {
+            display: block;
+            padding: $spacing-md;
+            background-color: $color-white;
+            border: 1px solid $color-gray-200;
+            text-decoration: none;
+            transition: all 0.2s ease;
+
+            &:hover {
+                border-color: $color-gray-400;
+                background-color: $color-gray-100;
+            }
+        }
+    }
+
+    .nav-subtitle {
+        display: block;
+        color: $color-gray-500;
+        margin-bottom: $spacing-xs;
+    }
+
+    .nav-title {
+        display: block;
+        font-size: $font-size-base;
+        color: $color-black;
+        font-weight: 500;
+    }
+}

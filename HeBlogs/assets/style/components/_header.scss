@@ -1,0 +1,46 @@
+@use '../utils/variables' as *;
+@use '../utils/responsive' as *;
+
+.site-header {
+    width: 100%;
+    background-color: var(--heblogs-color-base, #fff);
+}
+
+.header-hero {
+    position: relative;
+    width: 100%;
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    @include below($breakpoint-mobile) {
+        min-height: 200px;
+    }
+}
+
+.header-logo {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 300px;
+
+    img {
+        max-height: 150px;
+        width: auto;
+        margin: 0 auto;
+
+        @include below($breakpoint-mobile) {
+            max-height: 100px;
+        }
+    }
+
+    .site-title {
+        color: $color-white;
+        text-decoration: none;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    }
+}

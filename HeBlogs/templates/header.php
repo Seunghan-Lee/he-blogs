@@ -14,19 +14,13 @@
 <?php wp_body_open(); ?>
 
 <header id="masthead" class="site-header" role="banner">
-    <div class="site-branding">
-        <?php if (has_custom_logo()) : ?>
-            <?php the_custom_logo(); ?>
-        <?php else : ?>
-            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
-        <?php endif; ?>
+    <div class="header-hero">
+        <div class="header-logo">
+            <?php if (has_custom_logo()) : ?>
+                <?php the_custom_logo(); ?>
+            <?php else : ?>
+                <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" class="site-title"><?php bloginfo('name'); ?></a>
+            <?php endif; ?>
+        </div>
     </div>
-    <nav id="site-navigation" class="main-navigation" role="navigation">
-        <?php
-        wp_nav_menu(array(
-            'theme_location' => 'primary',
-            'fallback_cb'    => false,
-        ));
-        ?>
-    </nav>
 </header>

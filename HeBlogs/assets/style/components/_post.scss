@@ -1,0 +1,116 @@
+@use '../utils/variables' as *;
+@use '../utils/responsive' as *;
+
+// 포스트 공통 스타일
+.post {
+    background-color: $color-white;
+
+    @include below($breakpoint-mobile) {
+        
+    }
+}
+
+.post-single {
+
+}
+
+// 포스트 헤더
+.entry-header {
+    margin-bottom: $spacing-md;
+}
+
+.entry-title {
+    line-height: 1.2;
+    margin-bottom: $spacing-sm;
+    color: $color-black;
+    font-size: 46px;
+    font-weight: 800;
+    word-break: keep-all;
+
+    a {
+        color: var(--heblogs-color-base, $color-black);
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--heblogs-color-accent, $color-gray-500);
+        }
+    }
+
+}
+
+// 메타 정보
+.entry-meta {
+    color: $color-black;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-size: 14px;
+}
+
+.meta-separator {
+    color: $color-gray-400;
+}
+
+// 포스트 콘텐츠
+.entry-content {
+
+    p {
+        margin-bottom: $spacing-md;
+    }
+
+    a {
+        color: $color-gray-600;
+        text-decoration: underline;
+
+        &:hover {
+            color: $color-black;
+        }
+    }
+}
+
+.post-content {
+    margin-top: $spacing-md;
+}
+
+h1.wp-block-heading {
+    font-size: 32px;
+    margin-bottom: $spacing-sm;
+}
+
+h2.wp-block-heading {
+    font-size: 28px;
+    margin-bottom: $spacing-sm;
+}
+
+h3.wp-block-heading {
+    font-size: 24px;
+    margin-bottom: $spacing-sm;
+}
+
+h4.wp-block-heading {
+    font-size: 20px;
+    margin-bottom: $spacing-sm;
+}
+// 아카이브 헤더
+.archive-header {
+    margin-bottom: $spacing-xl;
+    padding-bottom: $spacing-md;
+    border-bottom: 2px solid var(--heblogs-color-subtle, $color-gray-200);
+
+    @include below($breakpoint-mobile) {
+        margin-bottom: $spacing-lg;
+    }
+}
+
+.archive-title {
+    color: var(--heblogs-color-base, $color-black);
+    margin-bottom: $spacing-sm;
+
+}
+
+.archive-description {
+    color: $color-gray-500;
+    font-size: $font-size-base;
+    margin-top: $spacing-sm;
+}
