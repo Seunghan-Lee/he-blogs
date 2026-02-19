@@ -12,6 +12,9 @@ require_once get_template_directory() . '/functions/setup.php';
 // 스타일/스크립트 등록
 require_once get_template_directory() . '/functions/scripts.php';
 
+// 템플릿 로더 (templates/ 디렉터리 자동 인식)
+require_once get_template_directory() . '/functions/templates.php';
+
 // 파비콘 (images 폴더의 favicon 자동 사용)
 require_once get_template_directory() . '/functions/favicon.php';
 
