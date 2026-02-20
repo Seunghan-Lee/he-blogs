@@ -11,11 +11,15 @@ heblogs_header(); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class('post post-single'); ?>>
                     <header class="entry-header">
                         <h1 class="entry-title post-title"><?php heblogs_the_title(); ?></h1>
-                        <div class="entry-meta">
-                            <time datetime="<?php echo esc_attr(get_the_date('c')); ?>"><?php echo esc_html(get_the_date()); ?></time>
-                        </div>
                     </header>
-                    <div class="divider"></div>
+                    <div class="entry-meta">
+                        <time datetime="<?php echo esc_attr(get_the_date('c')); ?>"><?php echo esc_html(get_the_date()); ?></time>
+                    </div>
+                    <?php if (has_post_thumbnail()) : ?>
+                        <figure class="single-featured-thumbnail">
+                            <?php the_post_thumbnail('full'); ?>
+                        </figure>
+                    <?php endif; ?>
                     <div class="entry-content post-content">
                         <?php the_content(); ?>
                     </div>

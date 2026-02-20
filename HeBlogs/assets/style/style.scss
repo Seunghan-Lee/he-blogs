@@ -5,11 +5,12 @@
  */
 
 @use 'base/theme-info';
-@use 'utils/fonts';
 @use 'utils/variables';
+@use 'base/fonts';
 @use 'utils/utility';
 @use 'base/base';
 @use 'base/layout';
+@use 'components/form';
 @use 'components/header';
 @use 'components/post';
 @use 'components/sidebar';

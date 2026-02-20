@@ -12,6 +12,9 @@ require_once get_template_directory() . '/functions/setup.php';
 // 스타일/스크립트 등록
 require_once get_template_directory() . '/functions/scripts.php';
 
+// 댓글 폼/댓글 액션
+require_once get_template_directory() . '/functions/comments.php';
+
 // 템플릿 로더 (templates/ 디렉터리 자동 인식)
 require_once get_template_directory() . '/functions/templates.php';
 

@@ -11,94 +11,105 @@
         @include below($breakpoint-mobile) {
         }
     }
-
-    .widget-title {
-        color: $color-black;
-        margin-bottom: $spacing-md;
-        padding-bottom: $spacing-sm;
-        border-bottom: 1px solid $color-gray-200;
-        font-weight: 700;
-    }
-
-    // 메뉴 위젯
-    .menu {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        li {
-            margin-bottom: $spacing-xs;
+     // 검색 폼
+    .widget_search {
+        .wp-block-search__label {
+            display: none;
         }
-
-        a {
-            color: $color-gray-600;
-            text-decoration: none;
-            display: block;
-            padding: $spacing-xs 0;
-            transition: color 0.2s ease;
-
-            &:hover {
-                color: $color-black;
+        #wp-block-search__input-1 {
+            &::placeholder {
+                color: $color-gray-400; // 원하는 색
+                opacity: 1;     // Firefox에서 옅게 보이는 것 방지
             }
         }
-    }
-
-    // 검색 폼
-    .search-form {
-        display: flex;
-        gap: $spacing-xs;
-    }
-
-    .search-field {
-        flex: 1;
-        padding: $spacing-sm;
-        border: 1px solid $color-gray-300;
-        font-size: $font-size-base;
-        color: $color-gray-600;
-
-        &:focus {
-            outline: none;
-            border-color: $color-gray-500;
-        }
-    }
-
-    .search-submit {
-        padding: $spacing-sm $spacing-md;
-        background-color: $color-black;
-        color: $color-white;
-        border: none;
-        cursor: pointer;
-        font-size: $font-size-base;
-        transition: background-color 0.2s ease;
-
-        &:hover {
-            background-color: $color-gray-600;
-        }
-    }
-
-    // 리스트 스타일
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        li {
-            padding: $spacing-xs 0;
-            border-bottom: 1px solid $color-gray-200;
-
-            &:last-child {
-                border-bottom: none;
+        .wp-block-search {
+            display: flex;
+            position: relative;
+            .wp-block-search__inside-wrapper {
+                border: 4px solid $color-black;
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 0;
+                background-color: var(--heblogs-color-background);
             }
-
-            a {
-                color: $color-gray-600;
-                text-decoration: none;
-                transition: color 0.2s ease;
-
-                &:hover {
-                    color: $color-black;
+            .wp-block-search__input {
+                font-size: $font-size-base;
+                padding: $spacing-sm $spacing-sm;
+                background-color: transparent;
+                width: 100%;
+                &:focus {
+                    outline: none;
+                    border-color: var(--heblogs-color-base);
+                }
+            }
+            .wp-block-search__button.has-icon {
+                background-color: transparent;
+                margin: 0;
+                border:none;
+                width: 60px;
+                svg {
+                    fill: var(--heblogs-color-base);
+                    min-height: 30px;
+                    min-width: 30px;
                 }
             }
         }
     }
+    // 메뉴 위젯
+    .widget_categories {
+        .wp-block-heading {
+            margin-bottom: $spacing-xs;
+            font-size: $font-size-base;
+            color: var(--heblogs-color-base);
+            padding-bottom: $spacing-xs;
+            border-bottom: 4px solid var(--heblogs-color-base);
+            width: 100%;
+        }
+        .wp-block-categories-list {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-sm;
+            width: 100%;
+        }
+        li.cat-item {
+            padding-bottom: $spacing-sm;
+            border-bottom: 1px solid $color-black;
+            a {
+                color: $color-black;
+                text-decoration: none;
+                padding: $spacing-xs 0;
+                transition: color 0.2s ease;
+                font-weight: 800;
+                font-size: $font-size-xl;
+    
+                &:hover {
+                    color: var(--heblogs-color-base);
+                }
+            }
+        }
+
+    }
+    // 카테고리
+   .wp-block-latest-posts {
+        .wp-block-latest-posts__post-title {
+            font-size: $font-size-lg;
+            line-height: 1.2em;
+            font-weight: 600;
+        }
+        .wp-block-latest-posts__post-date {
+            color: $color-gray-400;
+            font-weight: 600;
+        }
+        .wp-block-latest-posts__post-excerpt {
+            font-size: $font-size-sm;
+            line-height: 1.4em;
+            color: $color-gray-500;
+        }
+        .wp-block-latest-posts__read-more {
+            font-size: $font-size-sm;
+            line-height: 1.2em;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+   }
 }

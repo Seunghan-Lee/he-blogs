@@ -1,0 +1,10 @@
+@use '../utils/variables' as *;
+
+input, button {
+  border-radius: $radius-sm;
+  border: 1px solid $color-black;
+}
+
+textarea {
+  display: block;
+}

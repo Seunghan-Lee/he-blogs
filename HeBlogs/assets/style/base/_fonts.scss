@@ -3,7 +3,7 @@
 @use '../utils/variables' as *;
 
 body, div, h1, h2, h3, h4, h5, h6, p, a, span, li, ul, ol, table, tr, td, th, textarea, input, button {
-    font-size: 16px;
+    font-size: $font-size-base;
     line-height: 1.6;
     letter-spacing: -0.02em;
     color: $color-black;
